@@ -11,18 +11,7 @@ module.exports = {
         test: /\.jsx?$/,
         include: path.join(__dirname, '../src'),
         exclude: /node_modules/,
-        loader: ['babel'],
-        query: {
-          cacheDirectory: true,
-          presets: ['es2015', 'react'],
-          plugins: [
-            'syntax-class-properties',
-            'syntax-decorators',
-            'syntax-object-rest-spread',
-            'transform-class-properties',
-            'transform-object-rest-spread'
-          ]
-        }
+        loaders: ['babel']
       }
     ]
   },

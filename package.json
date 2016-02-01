@@ -5,8 +5,8 @@
   "main": "src/application.js",
   "scripts": {
     "clean": "rimraf dist/built",
-    "build": "npm run clean && webpack --config webpack/production.config.js",
-    "devserver": "webpack-dev-server --port 3000 --config webpack/development.config.js --progress --colors --hot --content-base dist"
+    "build": "npm run clean && NODE_ENV=production webpack --config webpack/production.config.js",
+    "devserver": "webpack-dev-server --port 3000 --config webpack/development.config.js "
   },
   "author": "Paul Kögel",
   "repository": {
@@ -23,12 +23,14 @@
     "babel-cli": "^6.4.0",
     "babel-core": "^6.1.2",
     "babel-loader": "^6.0.1",
+    "babel-plugin-react-transform": "^2.0.0",
     "babel-plugin-syntax-class-properties": "^6.3.13",
     "babel-plugin-syntax-decorators": "^6.3.13",
     "babel-plugin-transform-class-properties": "^6.4.0",
     "babel-plugin-transform-object-rest-spread": "^6.3.13",
     "babel-preset-es2015": "^6.1.2",
     "babel-preset-react": "^6.1.2",
+    "react-transform-hmr": "^1.0.1",
     "redux-devtools": "^3.0.2",
     "redux-devtools-dock-monitor": "^1.0.1",
     "redux-devtools-log-monitor": "^1.0.2",

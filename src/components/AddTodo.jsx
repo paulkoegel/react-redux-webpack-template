@@ -3,21 +3,21 @@ import { connect } from 'react-redux';
 
 import { addTodo } from '../actions';
 
-let AddTodo = ({ dispatch }) => {
-  let input;
+class AddTodo extends React.Component {
+  render() {
+    let input;
 
-  return (
-    <div>
-      <input ref={node => {
-        input = node;
-      }} />
-      <button onClick={() => {
-        dispatch(addTodo(input.value));
-        input.value = '';
-      }}>
-        Add Todo1
-      </button>
-    </div>
-  );
-};
+    return (
+      <div>
+        <input ref={node => {input = node}} />
+        <button onClick={() => {
+          this.props.dispatch(addTodo(input.value));
+          input.value = '';
+        }}>
+          Add Todo
+        </button>
+      </div>
+    );
+  }
+}
 export default connect()(AddTodo);
