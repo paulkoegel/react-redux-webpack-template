@@ -3,11 +3,7 @@ import { connect } from 'react-redux';
 
 import { toggleTodo } from '../actions';
 
-const Todo = ({
-  onClick,
-  completed,
-  text
-  }) => (
+const Todo = ({ onClick, completed, text }) => (
   <li
     onClick={onClick}
     style={{
@@ -26,10 +22,7 @@ const Todo = ({
   </li>
 );
 
-const TodoList = ({
-  todos,
-  onTodoClick
-  }) => (
+const TodoList = ({ todos, onTodoClick }) => (
   <ul>
     {todos.map(todo =>
         <Todo
@@ -41,10 +34,7 @@ const TodoList = ({
   </ul>
 );
 
-const getVisibleTodos = (
-  todos,
-  filter
-) => {
+const getVisibleTodos = ( todos, filter ) => {
   switch (filter) {
     case 'SHOW_ALL':
       return todos;
@@ -59,9 +49,7 @@ const getVisibleTodos = (
   }
 }
 
-const mapStateToProps = (
-  state
-) => {
+const mapStateToProps = (state) => {
   return {
     todos: getVisibleTodos(
       state.todos,
@@ -69,16 +57,11 @@ const mapStateToProps = (
     )
   };
 };
-const mapDispatchToProps = (
-  dispatch
-) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     onTodoClick: (id) => {
       dispatch(toggleTodo(id));
     }
   };
 };
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(TodoList);
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
