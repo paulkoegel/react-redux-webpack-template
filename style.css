@@ -25,7 +25,7 @@ nav, main, footer {
 }
 nav {
   flex: 0 0 30px;
-  background: #444;
+  outline: 1px solid #444;
   padding: 0 20px;
   display: flex;
   align-items: center;
