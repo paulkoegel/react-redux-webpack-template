@@ -1,4 +1,6 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { syncHistory, routeReducer } from 'react-router-redux';
+import { browserHistory } from 'react-router';
 
 const todo = (state, action) => {
   switch (action.type) {
@@ -50,9 +52,18 @@ const visibilityFilter = (
   }
 };
 
-const todoApp = combineReducers({
+const reducers = combineReducers({
   todos,
-  visibilityFilter
+  visibilityFilter,
+  routing: routeReducer
 });
 
-export default createStore(todoApp)
+const reduxRouterMiddleware = syncHistory(browserHistory);
+const createStoreWithMiddleware = applyMiddleware(reduxRouterMiddleware)(createStore);
+
+const store = createStoreWithMiddleware(reducers);
+
+// Required for replaying actions from devtools to work
+reduxRouterMiddleware.listenForReplays(store);
+
+export default store
