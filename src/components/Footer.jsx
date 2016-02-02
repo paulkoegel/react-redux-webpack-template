@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import DevTools from '../containers/DevTools'; // TODO: Handle for Prod
 
 import { setVisibilityFilter } from '../actions';
 
@@ -67,5 +68,6 @@ export default () => (
     <FilterLink filter='SHOW_COMPLETED'>
       Completed
     </FilterLink>
+    <DevTools />
   </p>
 );
