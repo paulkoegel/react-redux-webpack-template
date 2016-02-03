@@ -13,7 +13,7 @@ const TodoApp = (props) => (
     <div>
       <AddTodo />
       <TodoList />
-      {props.children}
+      { props.children }
       <Footer />
     </div>
   </div>
@@ -26,12 +26,12 @@ const About = () => (
 );
 
 export default () => {
-  return(
-  <Provider store={configureStore()}>
-    <Router history={browserHistory}>
-      <Route path="/" component={TodoApp}>
-        <Route path="about" component={About} />
+  return (
+  <Provider store={ configureStore() }>
+    <Router history={ browserHistory }>
+      <Route path='/' component={ TodoApp }>
+        <Route path='about' component={ About } />
       </Route>
     </Router>
   </Provider>);
-}
+};
