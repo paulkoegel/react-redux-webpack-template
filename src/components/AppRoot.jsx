@@ -1,8 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { Router, Route } from 'react-router';
+import { Router, Route, browserHistory } from 'react-router';
 import configureStore from '../store/configureStore';
-import { browserHistory } from 'react-router';
 
 import AddTodo from './AddTodo.jsx';
 import TodoList from './TodoList.jsx';
@@ -31,7 +30,7 @@ export default () => {
   <Provider store={configureStore()}>
     <Router history={browserHistory}>
       <Route path="/" component={TodoApp}>
-        <Route path='/about' component={About} />
+        <Route path="about" component={About} />
       </Route>
     </Router>
   </Provider>);

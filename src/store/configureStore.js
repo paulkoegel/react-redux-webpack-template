@@ -5,7 +5,7 @@ import { syncHistory } from 'react-router-redux';
 import rootReducer from '../reducers';
 import DevTools from '../containers/DevTools';
 
-const reduxRouterMiddleware = syncHistory(browserHistory)
+const reduxRouterMiddleware = syncHistory(browserHistory);
 
 export default function configureStore(initialState) {
   // Note: only Redux >= 3.1.0 supports passing enhancer as third argument.
@@ -15,17 +15,12 @@ export default function configureStore(initialState) {
 
     // Required! Enable Redux DevTools with the monitors you chose
     DevTools.instrument()
-  )(createStore)
-  const store = finalCreateStore(rootReducer, initialState)
+  )(createStore);
+
+  const store = finalCreateStore(rootReducer, initialState);
 
   // Replaying Actions for Devtools
-  reduxRouterMiddleware.listenForReplays(store)
+  reduxRouterMiddleware.listenForReplays(store);
 
-  if (module.hot) {
-    module.hot.accept('../reducers', () =>
-      store.replaceReducer(require('../reducers')/*.default if you use Babel 6+ */)
-    );
-  }
-
-  return store
+  return store;
 }
