@@ -1,6 +1,6 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { syncHistory, routeReducer } from 'react-router-redux';
-import { browserHistory } from 'react-router';
+import { hashHistory } from 'react-router';
 
 const todo = (state, action) => {
   switch (action.type) {
@@ -58,7 +58,7 @@ const reducers = combineReducers({
   routing: routeReducer
 });
 
-const reduxRouterMiddleware = syncHistory(browserHistory);
+const reduxRouterMiddleware = syncHistory(hashHistory);
 const createStoreWithMiddleware = applyMiddleware(reduxRouterMiddleware)(createStore);
 
 const store = createStoreWithMiddleware(reducers);

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import { Router, Route, browserHistory, Link } from 'react-router'
+import { Router, Route, hashHistory, Link } from 'react-router'
 
 import AddTodo from './AddTodo.jsx';
 import Bar from './Bar.jsx';
@@ -35,7 +35,7 @@ const TodoApp = ({children}) => (
 export default () => {
   return(
   <Provider store={ store }>
-    <Router history={ browserHistory }>
+    <Router history={ hashHistory }>
       <Route path="/" component={ TodoApp }>
         <Route path="foo" component={ Foo }/>
         <Route path="bar" component={ Bar }/>
