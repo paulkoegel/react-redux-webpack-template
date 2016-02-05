@@ -2,8 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { toggleTodo } from '../actions';
+import CSSModules from 'react-css-modules';
 
-const Todo = ({ onClick, completed, text }) => (
+import styles from './TodoList.scss';
+
+let Todo = ({ onClick, completed, text }) => (
   <li
     onClick={onClick}
     style={{
@@ -17,10 +20,13 @@ const Todo = ({ onClick, completed, text }) => (
           'completed' :
           ''
     }
+    styleName={'todo_background'}
     >
     {text}
   </li>
 );
+
+Todo = CSSModules(Todo, styles);
 
 const TodoList = ({ todos, onTodoClick }) => (
   <ul>
