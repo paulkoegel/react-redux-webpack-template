@@ -42,7 +42,7 @@ const mapDispatchProps = (dispatch, ownProps) => {
 const FilterLink = connect(mapStateProps, mapDispatchProps)(Link2);
 
 export default () => (
-  <p>
+  <div>
     Show:
     { ' ' }
     <FilterLink filter='SHOW_ALL'>
@@ -57,6 +57,7 @@ export default () => (
       Completed
     </FilterLink>
     <DevTools />
+    <br />
     <Link to={ '/about' }>About</Link>
-  </p>
+  </div>
 );

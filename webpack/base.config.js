@@ -14,12 +14,6 @@ module.exports = {
         exclude: /node_modules/,
         loaders: ['babel']
       },
-      // SCSS
-      // {
-      //   test: /\.scss$/,
-      //   loader: 'style!css!sass'
-      // },
-      // SCSS
       {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass')
