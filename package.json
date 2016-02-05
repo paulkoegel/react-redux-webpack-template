@@ -40,7 +40,9 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "node-sass": "^3.4.2",
     "react-css-modules": "^3.7.4",
+    "react-transform-catch-errors": "^1.0.2",
     "react-transform-hmr": "^1.0.1",
+    "redbox-react": "^1.2.2",
     "redux-devtools": "^3.0.2",
     "redux-devtools-dock-monitor": "^1.0.1",
     "redux-devtools-log-monitor": "^1.0.2",
@@ -49,10 +51,12 @@
     "style-loader": "^0.13.0",
     "webpack": "^1.12.13",
     "webpack-dev-server": "^1.14.1",
-    "webpack-merge": "^0.7.3"
+    "webpack-merge": "^0.7.3",
+    "webpack-notifier": "^1.2.1"
   },
   "dependencies": {
     "history": "^2.0.0",
+    "lodash": "^4.2.1",
     "react": "^0.14.2",
     "react-dom": "^0.14.2",
     "react-redux": "^4.3.0",
