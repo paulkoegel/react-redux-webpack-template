@@ -20,7 +20,10 @@ const developmentConfig = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
-    new WebpackNotifierPlugin()
+    new WebpackNotifierPlugin(),
+    new webpack.DefinePlugin({ // recommended for redux to build properly, taken from: http://stackoverflow.com/a/30061249
+      'process.env.NODE_ENV': '"development"'
+    })
   ]
 };
 

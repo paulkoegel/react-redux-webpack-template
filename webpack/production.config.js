@@ -9,6 +9,9 @@ const productionConfig = {
       compressor: {
         warnings: false // useless warnings, says Mathias :)
       }
+    }),
+    new webpack.DefinePlugin({ // required for redux to build properly - this is the recommended fix, taken from: http://stackoverflow.com/a/30061249
+      'process.env.NODE_ENV': '"production"'
     })
   ]
 };
