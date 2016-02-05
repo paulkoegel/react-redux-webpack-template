@@ -4,7 +4,8 @@
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <title>Simple Babel Webpack Template</title>
-    <link href='style.css' rel='stylesheet' title='Default Style'>
+    <link href='style.css' rel='stylesheet'>
+    <link href='built/css/app.css' rel='stylesheet'>
     <link href='favicon.png' rel='shortcut icon'>
   </head>
 
@@ -17,6 +18,12 @@
       <h3>React output:</h3>
       <div id='react-container'></div>
     </main>
+
+    <div class="slider" data-slider data-initial-start="50" data-end="200">
+      <span class="slider-handle"  data-slider-handle role="slider" tabindex="1"></span>
+      <span class="slider-fill" data-slider-fill></span>
+      <input type="hidden">
+    </div>
 
     <footer>
       <p>
