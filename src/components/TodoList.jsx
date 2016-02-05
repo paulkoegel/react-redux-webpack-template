@@ -2,12 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { toggleTodo } from '../actions';
+import CSSModules from 'react-css-modules';
 
-const Todo = ({
-  onClick,
-  completed,
-  text
-  }) => (
+import styles from './TodoList.scss';
+
+let Todo = ({ onClick, completed, text }) => (
   <li
     onClick={onClick}
     style={{
@@ -21,15 +20,15 @@ const Todo = ({
           'completed' :
           ''
     }
+    styleName={'todo_background'}
     >
     {text}
   </li>
 );
 
-const TodoList = ({
-  todos,
-  onTodoClick
-  }) => (
+Todo = CSSModules(Todo, styles);
+
+const TodoList = ({ todos, onTodoClick }) => (
   <ul>
     {todos.map(todo =>
         <Todo
@@ -41,10 +40,7 @@ const TodoList = ({
   </ul>
 );
 
-const getVisibleTodos = (
-  todos,
-  filter
-) => {
+const getVisibleTodos = ( todos, filter ) => {
   switch (filter) {
     case 'SHOW_ALL':
       return todos;
@@ -59,9 +55,7 @@ const getVisibleTodos = (
   }
 }
 
-const mapStateToProps = (
-  state
-) => {
+const mapStateToProps = (state) => {
   return {
     todos: getVisibleTodos(
       state.todos,
@@ -69,16 +63,11 @@ const mapStateToProps = (
     )
   };
 };
-const mapDispatchToProps = (
-  dispatch
-) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     onTodoClick: (id) => {
       dispatch(toggleTodo(id));
     }
   };
 };
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(TodoList);
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList);

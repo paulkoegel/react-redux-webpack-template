@@ -1,45 +1,38 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-
-import { Router, Route, hashHistory, Link } from 'react-router'
+import { Router, Route, browserHistory } from 'react-router';
+import configureStore from '../store/configureStore';
 
 import AddTodo from './AddTodo.jsx';
-import Bar from './Bar.jsx';
-import Foo from './Foo.jsx';
-import Footer from './Footer.jsx';
-import store from '../store';
 import TodoList from './TodoList.jsx';
+import Footer from './Footer.jsx';
 
-
-const TodoApp = ({children}) => (
+const TodoApp = ({ children }) => (
   <div>
-    <nav>Navigation:
-      <Link to={`/`}>/</Link>{' '}
-      <Link to={`/foo`}>FOO</Link>{' '}
-      <Link to={`/bar`}>BAR</Link>
-    </nav>
-    <main>
-      Content for this URL:
-      { children || 'Nothing :(' }
-    </main>
-    <hr />
     <h1>Todos</h1>
     <div>
       <AddTodo />
       <TodoList />
+      { children }
       <Footer />
     </div>
   </div>
 );
 
+const About = () => (
+  <div>
+    <h1>About</h1>
+  </div>
+);
+
 export default () => {
   return(
-  <Provider store={ store }>
-    <Router history={ hashHistory }>
-      <Route path="/" component={ TodoApp }>
-        <Route path="foo" component={ Foo }/>
-        <Route path="bar" component={ Bar }/>
-      </Route>
-    </Router>
-  </Provider>);
-}
+    <Provider store={ configureStore() }>
+      <Router history={ browserHistory }>
+        <Route path='/' component={ TodoApp }>
+          <Route path='about' component={ About } />
+        </Route>
+      </Router>
+    </Provider>
+  );
+};

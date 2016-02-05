@@ -1,17 +1,5 @@
 const path = require('path');
-const webpack = require('webpack');
-
-const babelSettings = {
-  cacheDirectory: true,
-  presets: ['es2015', 'react'],
-  plugins: [
-    'syntax-class-properties',
-    'syntax-decorators',
-    'syntax-object-rest-spread',
-    'transform-class-properties',
-    'transform-object-rest-spread'
-  ]
-};
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry:  [
@@ -19,23 +7,47 @@ module.exports = {
   ],
   module: {
     loaders: [
+      // Babel
       {
         test: /\.jsx?$/,
         include: path.join(__dirname, '../src'),
         exclude: /node_modules/,
-        loaders: ['babel?' + JSON.stringify(babelSettings)] // JSON.stringify here is a bit retarded, but cannot use the query attribute for Babel settings because we have several loaders in development :(
+        loaders: ['babel']
+      },
+      // DO not change class names of global scss
+      {
+        test: /\.scss/,
+        loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass'),
+        include: /src\/components/
+      },
+      {
+        test: /\.scss/,
+        loader: ExtractTextPlugin.extract('style', 'css!sass'),
+        exclude: /src\/components/
       }
     ]
   },
+  sassLoader: {
+    includePaths: [path.resolve(__dirname, '../node_modules/foundation-sites/scss/')]
+  },
+  externals: {
+    jQuery: 'jQuery',
+    foundation: 'Foundation'
+  },
+  plugins: [
+    new ExtractTextPlugin('css/app.css', {
+      allChunks: true
+    })
+  ],
   output: {
     path: path.resolve(__dirname, '../dist/built'),
     publicPath: '/built/',
     filename: 'js/application.js',
     devtoolModuleFilenameTemplate: '[resource-path]' // copied from Mathias, see: https://webpack.github.io/docs/configuration.html#output-devtoolmodulefilenametemplate
   },
-   resolve: {
+  resolve: {
     // had problems importing react in src/components with the following option, so I disabled it again.
-    //root: 'src', // allows us to specify import paths as if they were from the root of the src directory. This makes it very easy to navigate to files regardless of how deeply nested your current file is. https://webpack.github.io/docs/configuration.html#resolve-root
+    // root: 'src', // allows us to specify import paths as if they were from the root of the src directory. This makes it very easy to navigate to files regardless of how deeply nested your current file is. https://webpack.github.io/docs/configuration.html#resolve-root
     extensions: ['', '.js', '.jsx'] // '' is required for Webpack to work!?!
   },
   stats: {
