@@ -14,12 +14,13 @@ module.exports = {
         exclude: /node_modules/,
         loaders: ['babel']
       },
-      // DO not change class names of global scss
+      // use CSS modules with guaranteed local class names for normal CSS code
       {
         test: /\.scss/,
         loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass'),
         include: /src\/components/
       },
+      // do NOT modify class names for all other CSS. E.g. CSS included from node_modules, such as foundation and jQuery, which we include in foundation_init.js
       {
         test: /\.scss/,
         loader: ExtractTextPlugin.extract('style', 'css!sass'),
