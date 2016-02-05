@@ -14,11 +14,25 @@ module.exports = {
         exclude: /node_modules/,
         loaders: ['babel']
       },
+      // DO not change class names of global scss
       {
-        test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass')
+        test: /\.scss/,
+        loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass'),
+        include: /src\/components/
+      },
+      {
+        test: /\.scss/,
+        loader: ExtractTextPlugin.extract('style', 'css!sass'),
+        exclude: /src\/components/
       }
     ]
+  },
+  sassLoader: {
+    includePaths: [path.resolve(__dirname, '../node_modules/foundation-sites/scss/')]
+  },
+  externals: {
+    jQuery: 'jQuery',
+    foundation: 'Foundation'
   },
   plugins: [
     new ExtractTextPlugin('css/app.css', {
