@@ -1,5 +1,7 @@
 # React Redux Webpack Template
 
+Demo / see it in action: [https://paulkogel.github.io/react-redux-webpack-template](https://paulkogel.github.io/react-redux-webpack-template)
+
 Comprises:
 + React
 + Babel (ES6)
@@ -48,6 +50,7 @@ Check `dist/built/js` for output:
 
 ### Github Pages Setup
 + merge current `master` branch to `gh-pages-preparation` - we need to use hashHistory (`/#/foo`) instead of browserHistory (`/foo`) to build the page for Github pages. This is because the page is hosted in a subdirectory (`https://paulkogel.gihub.io/react-redux-webpack-template/index.html`). Alternative solutions might be found here: [https://github.com/rackt/react-router/issues/353](https://github.com/rackt/react-router/issues/353).
++ `git subtree push --prefix dist origin gh-pages`
 
 ### Good to know
 + the Webpack dev server's port can be changed in package JSON's `devserver` script (`--port` option). Make sure you don't forget to set the same port in `/webpack/development.config.js` - otherwise hot module replacement won't work and you'll get lots of connection errors in your browser's JS console.
