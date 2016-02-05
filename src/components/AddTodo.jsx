@@ -10,7 +10,9 @@ class AddTodo extends React.Component {
     return (
       <div>
         <input ref={node => {input = node}} />
-        <button onClick={() => {
+        <button
+          className='button'
+          onClick={() => {
           this.props.dispatch(addTodo(input.value));
           input.value = '';
         }}>
