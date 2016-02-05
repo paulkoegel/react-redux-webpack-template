@@ -10,27 +10,31 @@
   </head>
 
   <body>
-    <a href='https://github.com/paulkogel/simple-redux-webpack-template'>
-      <img style="position: absolute; top: 0; right: 0; border: 0;" src="fork-me-ribbon.png" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png">
-    </a>
+    <div class='row'>
+      <div class='small-12 columns'>
+        <a href='https://github.com/paulkogel/simple-redux-webpack-template'>
+          <img style="position: absolute; top: 0; right: 0; border: 0;" src="fork-me-ribbon.png" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png">
+        </a>
 
-    <main>
-      <h3>React output:</h3>
-      <div id='react-container'></div>
-    </main>
+        <main>
+          <h3>React output:</h3>
+          <div id='react-container'></div>
+        </main>
 
-    <div class="slider" data-slider data-initial-start="50" data-end="200">
-      <span class="slider-handle"  data-slider-handle role="slider" tabindex="1"></span>
-      <span class="slider-fill" data-slider-fill></span>
-      <input type="hidden">
+        <div class="slider" data-slider data-initial-start="50" data-end="200" style='width: 100%'>
+          <span class="slider-handle"  data-slider-handle role="slider" tabindex="1"></span>
+          <span class="slider-fill" data-slider-fill></span>
+          <input type="hidden">
+        </div>
+
+        <footer>
+          <p>
+          Built by <a href='https://paulkogel.github.io'>Paul Kögel</a> &amp; <a href='https://twitter.com/uepsi'>Maxim Küpper</a> at <a href='https://www.railslove.com/'>Railslove</a>.<br>
+            Redux code is based on <a href='https://github.com/sadams/todo-redux-react-webpack'>sadams/todo-redux-react-webpack</a>, which is a transcription of Dan Abramov's excellent <a href='https://egghead.io/series/getting-started-with-redux'>egghead.io Redux video course</a>.
+          </p>
+        </footer>
+      </div>
     </div>
-
-    <footer>
-      <p>
-        Built by <a href='https://paulkogel.github.io'>Paul Kögel</a>.<br>
-        Redux code is based on <a href='https://github.com/sadams/todo-redux-react-webpack'>sadams/todo-redux-react-webpack</a>, which is a transcription of Dan Abramov's excellent <a href='https://egghead.io/series/getting-started-with-redux'>egghead.io Redux video course</a>.
-      </p>
-    </footer>
     <script src='built/js/application.js'></script>
   </body>
 
