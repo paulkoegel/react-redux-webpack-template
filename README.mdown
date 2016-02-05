@@ -1,9 +1,15 @@
-# Simple Redux Webpack Template
+# React Redux Webpack Template
+
+Comprises:
++ React
++ Babel (ES6)
++ Webpack
++ Redux
++ React Router
++ Foundation
++ ES Lint
 
 Redux code is based on [https://github.com/sadams/todo-redux-react-webpack](https://github.com/sadams/todo-redux-react-webpack), which is a transcription of Dan Abramov's excellent [egghead.io Redux video course](https://egghead.io/series/getting-started-with-redux).
-
-You can see the output / a demo here:  
-[https://paulkogel.github.io/simple-redux-webpack-template](https://paulkogel.github.io/simple-redux-webpack-template)
 
 Includes only essentials to:
 + compile ES6 to ES5 (with Babel)
@@ -22,15 +28,13 @@ Both are set in `package.json` - feel free to remove the version numbers there s
     npm install
     npm run devserver
 
-You can now rename "Peter Parker" in `application.js`, reload the page, and you should see the new name :)
-
 ### Production build & deploy
 
 1. To transpile the JavaScript run:
 
     npm run build
 
-Check `dist/js` for output:
+Check `dist/built/js` for output:
 + `application.js` (transpiled source code)
 + `application.js.map` (source map)
 
@@ -41,28 +45,6 @@ Check `dist/js` for output:
 3. Then push just the `/dist` folder to the `gh-pages` branch like so:
 
     git subtree push --prefix dist origin gh-pages
-
-### Only for reference: setup was done with these commands
-
-No need to do this anymore. The following list is only kept as a reference to see how this repository was created from scratch.
-
-    mkdir simple-redux-webpack-template
-    cd simple-redux-webpack-template
-    npm init .
-
-    npm install --save babel
-    npm install --save-dev webpack
-    npm install --save-dev babel-preset-es2015
-    npm install --save-dev webpack-dev-server
-
-Optional: add React (only for demonstration purposes, could be any other npm package as well)
-
-    npm install --save react react-dom
-    npm install --save-dev babel-preset-react
-
-Required npm module to merge Webpack configs (allows us to use `webpack/base.config.js`):
-
-    npm install --save-dev webpack-merge
 
 ### Good to know
 + the Webpack dev server's port can be changed in package JSON's `devserver` script (`--port` option). Make sure you don't forget to set the same port in `/webpack/development.config.js` - otherwise hot module replacement won't work and you'll get lots of connection errors in your browser's JS console.
