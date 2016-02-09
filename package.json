@@ -5,7 +5,7 @@
   "main": "src/application.js",
   "scripts": {
     "clean": "rimraf dist/built",
-    "build": "NODE_ENV=production npm run clean && NODE_ENV=production webpack --config webpack/production.config.js",
+    "build": "npm run clean && BABEL_ENV=production NODE_ENV=production webpack --config webpack/production.config.js",
     "devserver": "NODE_ENV=development webpack-dev-server --port 3000 --config webpack/development.config.js ",
     "lint": "eslint src"
   },
