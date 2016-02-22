@@ -1,3 +1,6 @@
+# MOVED TO: [[https://github.com/railslove/react-redux-webpack-template]]
+---
+
 # React Redux Webpack Template
 
 Demo / see it in action: [https://paulkogel.github.io/react-redux-webpack-template](https://paulkogel.github.io/react-redux-webpack-template)
